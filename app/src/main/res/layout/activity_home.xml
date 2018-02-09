@@ -4,67 +4,98 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/activity_horizontal_margin"
-    tools:context="com.gmail.kidusmamuye.taxulator.ui.HomeActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.gmail.kidusmamuye.taxulator.ui.HomeActivity">
 
     <EditText
-        android:hint="@string/make"
         android:id="@+id/car_make"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLines="1"
+        android:hint="@string/make"
         android:inputType="text"
-        android:maxLength="40" />
+        android:maxLength="40"
+        android:maxLines="1" />
 
     <EditText
-        android:layout_below="@id/car_make"
-        android:hint="@string/model"
         android:id="@+id/car_model"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLines="1"
+        android:layout_below="@id/car_make"
+        android:hint="@string/model"
         android:inputType="text"
-        android:maxLength="40"  />
+        android:maxLength="40"
+        android:maxLines="1" />
 
     <EditText
-        android:layout_below="@id/car_model"
-        android:hint="@string/age"
         android:id="@+id/car_age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLines="1"
+        android:layout_below="@id/car_model"
+        android:hint="@string/age"
         android:inputType="number|numberDecimal"
-        android:maxLength="15" />
+        android:maxLength="15"
+        android:maxLines="1" />
 
     <EditText
-        android:layout_below="@id/car_age"
-        android:hint="@string/import_price"
         android:id="@+id/car_import_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLines="1"
+        android:layout_below="@id/car_age"
+        android:hint="@string/import_price"
         android:inputType="number|numberDecimal"
-        android:maxLength="15" />
+        android:maxLength="15"
+        android:maxLines="1" />
 
     <LinearLayout
-        android:layout_alignParentBottom="true"
-        android:weightSum="2"
-        android:orientation="horizontal"
+        android:layout_marginTop="16sp"
+        android:id="@+id/result"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/car_import_price"
+        android:orientation="vertical">
+
+        <TextView
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/calculated_result"
+            android:textSize="30sp" />
+
+        <TextView
+            android:textSize="25sp"
+            android:id="@+id/final_tax_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textSize="25sp"
+            android:id="@+id/final_price_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="2">
 
         <Button
             android:id="@+id/btn_calculate"
-            android:text="@string/Calculate"
-            android:layout_weight="1"
             android:layout_width="0sp"
-            android:layout_height="54sp" />
+            android:layout_height="54sp"
+            android:layout_weight="1"
+            android:text="@string/Calculate" />
+
         <Button
             android:id="@+id/btn_reset"
-            android:text="@string/reset"
-            android:layout_weight="1"
             android:layout_width="0sp"
-            android:layout_height="54sp" />
+            android:layout_height="54sp"
+            android:layout_weight="1"
+            android:text="@string/reset" />
 
     </LinearLayout>
 

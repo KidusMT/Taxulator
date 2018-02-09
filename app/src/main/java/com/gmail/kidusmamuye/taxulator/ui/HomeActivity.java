@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.gmail.kidusmamuye.taxulator.R;
 import com.gmail.kidusmamuye.taxulator.base.view.BaseActivity;
@@ -16,6 +17,7 @@ public class HomeActivity extends BaseActivity {
 
     EditText car_model_input, car_make_input, car_age_input, car_import_price_input;
     Button btn_calculate, btn_reset;
+    TextView final_tax_result, price_result;
 
     public double final_tax = 0, price = 0;
     public double tax_percentage = 0;
@@ -33,6 +35,12 @@ public class HomeActivity extends BaseActivity {
         car_age_input = findViewById(R.id.car_age);
         car_import_price_input = findViewById(R.id.car_import_price);
 
+        final_tax_result = findViewById(R.id.final_tax_result);
+        price_result = findViewById(R.id.final_price_result);
+
+        final_tax_result.setText("Final Tax: ");
+        price_result.setText("Price: ");
+
         btn_calculate = findViewById(R.id.btn_calculate);
         btn_reset = findViewById(R.id.btn_reset);
 
@@ -45,6 +53,9 @@ public class HomeActivity extends BaseActivity {
             car_model_input.setText("");
             car_age_input.setText("");
             car_import_price_input.setText("");
+
+            final_tax_result.setText("Final Tax: ");
+            price_result.setText("Price: ");
         });
 
     }
@@ -93,6 +104,9 @@ public class HomeActivity extends BaseActivity {
 
         taxulate(car);
 
+
+        final_tax_result.setText("Final Tax: "+final_tax+" Birr");
+        price_result.setText("Price: "+price+" Birr");
 
 
     }
