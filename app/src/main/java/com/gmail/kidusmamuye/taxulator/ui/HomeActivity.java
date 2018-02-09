@@ -1,8 +1,10 @@
 package com.gmail.kidusmamuye.taxulator.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -22,6 +24,9 @@ public class HomeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        //hides the keyboard till the user selects to an edit text
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         car_make_input = findViewById(R.id.car_make);
         car_model_input = findViewById(R.id.car_model);
@@ -87,6 +92,9 @@ public class HomeActivity extends BaseActivity {
         car.car_import_price = car_import_price_input_formated;
 
         taxulate(car);
+
+
+
     }
 
     public void taxulate(Car car) {
@@ -163,9 +171,15 @@ public class HomeActivity extends BaseActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
+        if (id == R.id.menu_share) {
+            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+            sharingIntent.setType("text/plain");
+            String shareBody = "Here is the share content body";
+            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+            startActivity(Intent.createChooser(sharingIntent, "Share via"));
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 }
