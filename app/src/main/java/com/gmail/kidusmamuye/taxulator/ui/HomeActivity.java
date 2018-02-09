@@ -31,50 +31,60 @@ public class HomeActivity extends BaseActivity {
         btn_calculate = findViewById(R.id.btn_calculate);
         btn_reset = findViewById(R.id.btn_reset);
 
-        //----------------------------
+        //for the calculate button click
+        btn_calculate.setOnClickListener(v->onCalculate());
+
+        //for resetting the text fields
+        btn_reset.setOnClickListener(v -> {
+            car_make_input.setText("");
+            car_model_input.setText("");
+            car_age_input.setText("");
+            car_import_price_input.setText("");
+        });
+
+    }
+
+    void onCalculate(){
 
         // 1) Retrieve all the user inputs
 
-        if (car_age_input.getText().toString().isEmpty()) {
-            return 0;  // or whatever way you want to handle this case
-            // int car_age_input_formated = (car_age_input.getText().toString().isEmpty())
-        String car_make = car_make_input.getText().toString().trim();
-        String car_model = car_model_input.getText().toString().trim();
-        double car_age = Integer.parseInt(car_age_input.getText().toString().trim());
-        double car_import_price = Double.parseDouble(car_import_price_input.getText().toString().trim());
+        String car_make_formated = car_make_input.getText().toString().trim();
+        String car_model_formated = car_model_input.getText().toString().trim();
+        int car_age_input_formated = (car_age_input.getText().toString().trim().isEmpty())? 0: Integer.parseInt(car_age_input.getText().toString().trim());
+        double car_import_price_input_formated = (car_import_price_input.getText().toString().trim().isEmpty())? 0: Double.parseDouble(car_import_price_input.getText().toString().trim());
 
-//        // 2) Validate the inputs to make sure it is correct
-//        if (string_car_make.isEmpty()) {
-//            startTimeInput.setError("No start time provided");
-//            startTimeInput.requestFocus();
-//            return;
-//        }
-//
-//        if (string_car_model.isEmpty()) {
-//            validate(stopTimeInput, "No stop time provided");
-//            return;
-//        }
-//
-//        if (string_car_age.isEmpty()) {
-//            validate(distanceInput, "No distance covered provided");
-//            return;
-//        }
-//
-//        int distanceCovered = Integer.parseInt(distanceCoveredString);
-//        if (distanceCovered == 0) {
-//            distanceInput.setError("No proper distance covered provided");
-//            distanceInput.requestFocus();
-//            return;
-//        }
+        // 2) Validate the inputs to make sure it is correct
+        if (car_make_formated.isEmpty()) {
+            validate(car_make_input, "No car make provided");
+            return;
+        }
+
+        if (car_model_formated.isEmpty()) {
+            validate(car_model_input, "No car model provided");
+            return;
+        }
+
+        if (car_age_input.getText().toString().trim().isEmpty()) {
+            validate(car_age_input, "No car age provided");
+            return;
+        }
+
+        if (car_import_price_input.getText().toString().trim().isEmpty()) {
+            validate(car_import_price_input, "No import price provided");
+            return;
+        }
+
+        if (Double.parseDouble(car_import_price_input.getText().toString().trim()) == 0) {
+            validate(car_import_price_input, "import price can't be 0");
+            return;
+        }
 
         // 3) Create a Car object to represent the runs
         Car car = new Car();
-        car.car_make = car_make;
-        car.car_model = car_model;
-        car.car_age = car_age;
-        car.car_import_price = car_import_price;
-
-        //----------------------
+        car.car_make = car_make_formated ;
+        car.car_model = car_model_formated ;
+        car.car_age = car_age_input_formated;
+        car.car_import_price = car_import_price_input_formated;
 
         taxulate(car);
     }
