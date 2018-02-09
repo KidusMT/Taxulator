@@ -11,27 +11,40 @@
         android:hint="@string/make"
         android:id="@+id/car_make"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="text"
+        android:maxLength="40" />
+
     <EditText
         android:layout_below="@id/car_make"
         android:hint="@string/model"
         android:id="@+id/car_model"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="text"
+        android:maxLength="40"  />
 
     <EditText
         android:layout_below="@id/car_model"
         android:hint="@string/age"
         android:id="@+id/car_age"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number|numberDecimal"
+        android:maxLength="15" />
 
     <EditText
         android:layout_below="@id/car_age"
         android:hint="@string/import_price"
         android:id="@+id/car_import_price"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:inputType="number|numberDecimal"
+        android:maxLength="15" />
 
     <LinearLayout
         android:layout_alignParentBottom="true"
@@ -41,15 +54,17 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/btn_calculate"
             android:text="@string/Calculate"
             android:layout_weight="1"
             android:layout_width="0sp"
-            android:layout_height="wrap_content" />
+            android:layout_height="54sp" />
         <Button
+            android:id="@+id/btn_reset"
             android:text="@string/reset"
             android:layout_weight="1"
             android:layout_width="0sp"
-            android:layout_height="wrap_content" />
+            android:layout_height="54sp" />
 
     </LinearLayout>
 
