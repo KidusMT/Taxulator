@@ -19,5 +19,11 @@
     <string name="slide_4_desc">If accident happen save your record!</string>
 
     <string name="play_again">Play Again</string>
+    <string name="make">make</string>
+    <string name="model">model</string>
+    <string name="age">age</string>
+    <string name="import_price">import price</string>
+    <string name="Calculate">Calculate</string>
+    <string name="reset">reset</string>
 
 </resources>

@@ -43,7 +43,8 @@ public class LandingActivity extends BaseActivity {
 
         // Making notification bar transparent
         if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
 
         setContentView(R.layout.activity_landing);
@@ -161,6 +162,7 @@ public class LandingActivity extends BaseActivity {
      * View pager adapter
      */
     public class MyViewPagerAdapter extends PagerAdapter {
+
         private LayoutInflater layoutInflater;
 
         public MyViewPagerAdapter() {
@@ -170,7 +172,8 @@ public class LandingActivity extends BaseActivity {
         public Object instantiateItem(ViewGroup container, int position) {
             layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            View view = layoutInflater.inflate(layouts[position], container, false);
+            View view = layoutInflater.inflate(layouts[position],
+                    container, false);
             container.addView(view);
 
             return view;
