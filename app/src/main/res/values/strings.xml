@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Taxulator</string>
+
+    <!--WELCOME ACTIVITY-->
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Drive Slow!</string>
+    <string name="slide_1_desc">Drive only below the allowed speed!</string>
+
+    <string name="slide_2_title">Safty First!</string>
+    <string name="slide_2_desc">You might be rushing but what is the benefit if you die!</string>
+
+    <string name="slide_3_title">Save Life</string>
+    <string name="slide_3_desc">drive carefully so you don\'t kill other!</string>
+
+    <string name="slide_4_title">Report Fast!</string>
+    <string name="slide_4_desc">If accident happen save your record!</string>
+
+    <string name="play_again">Play Again</string>
+
 </resources>

@@ -1,9 +1,12 @@
-package com.gmail.kidusmamuye.taxulator;
+package com.gmail.kidusmamuye.taxulator.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class HomeActivity extends AppCompatActivity {
+import com.gmail.kidusmamuye.taxulator.R;
+import com.gmail.kidusmamuye.taxulator.base.view.BaseActivity;
+
+public class HomeActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
