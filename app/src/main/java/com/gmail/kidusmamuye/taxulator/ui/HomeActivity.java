@@ -19,6 +19,11 @@ public class HomeActivity extends BaseActivity {
     Button btn_calculate, btn_reset;
     TextView final_tax_result, price_result;
 
+    public String car_make_formated;
+    public String car_model_formated;
+    public int car_age_input_formated ;
+    public double car_import_price_input_formated;
+
     public double final_tax = 0, price = 0;
     public double tax_percentage = 0;
 
@@ -64,10 +69,10 @@ public class HomeActivity extends BaseActivity {
 
         // 1) Retrieve all the user inputs
 
-        String car_make_formated = car_make_input.getText().toString().trim();
-        String car_model_formated = car_model_input.getText().toString().trim();
-        int car_age_input_formated = (car_age_input.getText().toString().trim().isEmpty())? 0: Integer.parseInt(car_age_input.getText().toString().trim());
-        double car_import_price_input_formated = (car_import_price_input.getText().toString().trim().isEmpty())? 0: Double.parseDouble(car_import_price_input.getText().toString().trim());
+        car_make_formated = car_make_input.getText().toString().trim();
+        car_model_formated = car_model_input.getText().toString().trim();
+        car_age_input_formated = (car_age_input.getText().toString().trim().isEmpty())? 0: Integer.parseInt(car_age_input.getText().toString().trim());
+        car_import_price_input_formated = (car_import_price_input.getText().toString().trim().isEmpty())? 0: Double.parseDouble(car_import_price_input.getText().toString().trim());
 
         // 2) Validate the inputs to make sure it is correct
         if (car_make_formated.isEmpty()) {
@@ -188,8 +193,10 @@ public class HomeActivity extends BaseActivity {
         if (id == R.id.menu_share) {
             Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");
-            String shareBody = "Here is the share content body";
-            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+            String shareBody = "make: "+car_make_formated+"\nmodel: "+car_model_formated+"\nage: "
+                    +car_age_input_formated+"\nimport price: "+car_import_price_input_formated+"\nfinal tax: "
+                    +final_tax+"\nprice: "+price;
+            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Shared Content");
             sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
             startActivity(Intent.createChooser(sharingIntent, "Share via"));
             return true;
